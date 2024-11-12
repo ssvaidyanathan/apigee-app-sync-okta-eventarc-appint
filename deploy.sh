@@ -53,10 +53,10 @@ add_role_to_service_account() {
 
 TOKEN=$(gcloud auth print-access-token)
 
-# gcloud iam service-accounts create "$SERVICE_ACCOUNT_NAME" --project "$PROJECT_ID"
+gcloud iam service-accounts create "$SERVICE_ACCOUNT_NAME" --project "$PROJECT_ID"
 
-# add_role_to_service_account "roles/apigee.admin" #Apigee Organization Admin
-# add_role_to_service_account "roles/integrations.integrationInvoker" #Application Integration Invoker
+add_role_to_service_account "roles/apigee.admin" #Apigee Organization Admin
+add_role_to_service_account "roles/integrations.integrationInvoker" #Application Integration Invoker
 
 cp -r integration/local integration/dev
 cp -r integration/src integration/src_bkup
