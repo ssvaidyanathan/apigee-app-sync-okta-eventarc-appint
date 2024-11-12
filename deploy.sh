@@ -62,12 +62,12 @@ cp -r integration/src integration/src_bkup
 sed -i "s/SERVICE_ACCOUNT_NAME/$SERVICE_ACCOUNT_NAME/g" integration/dev/authconfigs/apigee-int-svc-account.json
 sed -i "s/PROJECT_ID/$PROJECT_ID/g" integration/dev/authconfigs/apigee-int-svc-account.json
 sed -i "s/OKTA_TOKEN/$OKTA_TOKEN/g" integration/dev/authconfigs/okta-token.json
-sed -i "s/OKTA_DOMAIN/$OKTA_DOMAIN/g" integration/dev/config-variables/app-event-config.json
+sed -i "s/OKTA_DOMAIN/$OKTA_DOMAIN/g" integration/dev/config-variables/apigee-okta-sync-config.json
 sed -i "s/PROJECT_ID/$PROJECT_ID/g" integration/dev/overrides/overrides.json
 sed -i "s/TOPIC_NAME/$TOPIC_NAME/g" integration/dev/overrides/overrides.json
-sed -i "s/PROJECT_ID/$PROJECT_ID/g" integration/src/app-event.json
-sed -i "s/SERVICE_ACCOUNT_NAME/$SERVICE_ACCOUNT_NAME/g" integration/src/app-event.json
-sed -i "s/TOPIC_NAME/$TOPIC_NAME/g" integration/src/app-event.json
+sed -i "s/PROJECT_ID/$PROJECT_ID/g" integration/src/apigee-okta-sync.json
+sed -i "s/SERVICE_ACCOUNT_NAME/$SERVICE_ACCOUNT_NAME/g" integration/src/apigee-okta-sync.json
+sed -i "s/TOPIC_NAME/$TOPIC_NAME/g" integration/src/apigee-okta-sync.json
 
 echo "Installing integrationcli"
 curl -L https://raw.githubusercontent.com/GoogleCloudPlatform/application-integration-management-toolkit/main/downloadLatest.sh | sh -

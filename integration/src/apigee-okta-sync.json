@@ -5,14 +5,14 @@
 			"label": "API Trigger",
 			"triggerType": "API",
 			"triggerNumber": "2",
-			"triggerId": "api_trigger/app-event_API_1",
+			"triggerId": "api_trigger/apigee-okta-sync_API_1",
 			"startTasks": [
 				{
 					"taskId": "1"
 				}
 			],
 			"properties": {
-				"Trigger name": "app-event_API_1"
+				"Trigger name": "apigee-okta-sync_API_1"
 			}
 		},
 		{
