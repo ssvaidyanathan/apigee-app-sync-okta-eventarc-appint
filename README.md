@@ -12,3 +12,14 @@ Demo to sync Apigee App credentials to Okta using EventArc and App Integration
 Use the following GCP Cloud Shell tutorial, and follow the instructions.
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://ssh.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/ssvaidyanathan/apigee-app-sync-okta-eventarc-appint&cloudshell_git_branch=main&cloudshell_workspace=.&cloudshell_tutorial=docs/cloudshell-tutorial.md)
+
+## License
+
+All solutions within this repository are provided under the
+[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license.
+Please see the [LICENSE](./LICENSE.txt) file for more detailed terms and conditions.
+
+## Not Google Product Clause
+
+This is not an officially supported Google product, nor is it part of an
+official Google product.
