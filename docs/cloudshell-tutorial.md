@@ -40,9 +40,37 @@ source ./env.sh
 
 ---
 
+### Deploy Cloud Run service
+
+```sh
+SERVICE_NAME=dummy-hello
+gcloud run deploy $SERVICE_NAME --image=us-docker.pkg.dev/cloudrun/container/hello \
+    --region $REGION --project $PROJECT_ID --no-allow-unauthenticated
+```
+
+---
+
+### Configure Eventarc trigger
+
+```sh
+PROJECT_NUMBER="$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')"
+TRIGGER_NAME=apigee-app-sync
+gcloud eventarc triggers create $TRIGGER_NAME \
+--destination-run-service=$SERVICE_NAME \
+--location=global \
+--project=$PROJECT_ID \
+--destination-run-region=$REGION \
+--event-filters="type=google.cloud.audit.log.v1.written" \
+--event-filters="serviceName=apigee.googleapis.com" \
+--event-filters="methodName=google.cloud.apigee.v1.DeveloperApps.CreateDeveloperApp" \
+--service-account=$PROJECT_NUMBER-compute@developer.gserviceaccount.com
+```
+
+---
+
 ## Deployment
 
-Next, let's deploy the sample to Apigee. Just run
+Next, let's deploy the sample. Just run
 
 ```bash
 ./deploy.sh

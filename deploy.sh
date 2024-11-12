@@ -53,24 +53,8 @@ gcloud iam service-accounts create "$SERVICE_ACCOUNT_NAME" --project "$PROJECT_I
 add_role_to_service_account "roles/apigee.admin" #Apigee Organization Admin
 add_role_to_service_account "roles/integrations.integrationInvoker" #Application Integration Invoker
 
-echo "Deploying Cloud Run Service"
-SERVICE_NAME=dummy-hello
-gcloud run deploy $SERVICE_NAME --image=us-docker.pkg.dev/cloudrun/container/hello \
-    --region $REGION --project $PROJECT_ID --no-allow-unauthenticated
-
-echo "Configuring Eventarc trigger"
 PROJECT_NUMBER="$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')"
 TRIGGER_NAME=apigee-app-sync
-gcloud eventarc triggers create $TRIGGER_NAME \
---destination-run-service=$SERVICE_NAME \
---location=global \
---project=$PROJECT_ID \
---destination-run-region=$REGION \
---event-filters="type=google.cloud.audit.log.v1.written" \
---event-filters="serviceName=apigee.googleapis.com" \
---event-filters="methodName=google.cloud.apigee.v1.DeveloperApps.CreateDeveloperApp" \
---service-account=$PROJECT_NUMBER-compute@developer.gserviceaccount.com
-
 TOPIC_NAME=$(gcloud eventarc triggers describe $TRIGGER_NAME --location global --project $PROJECT_ID --format=json | jq -r '.transport.pubsub.topic | split("/") | last' -r)
 
 cp -r integration/local integration/dev
