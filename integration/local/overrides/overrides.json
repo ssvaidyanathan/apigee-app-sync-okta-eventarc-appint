@@ -1,9 +1,10 @@
 {
 	"trigger_overrides": [
 		{
-			"triggerNumber": "1",
+			"triggerNumber": "3",
 			"projectId": "PROJECT_ID",
-			"topicName": "TOPIC_NAME"
+			"topicName": "TOPIC_NAME",
+			"serviceAccount": "SERVICE_ACCOUNT_NAME"
 		}
 	],
 	"task_overrides": [

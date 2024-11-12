@@ -60,7 +60,6 @@ gcloud run services delete $SERVICE_NAME --region=$REGION --project=$PROJECT_ID 
 echo "Removing assigned roles from Service Account"
 remove_role_from_service_account "roles/integrations.integrationInvoker"
 remove_role_from_service_account "roles/apigee.admin"
-remove_role_from_service_account "roles/pubsub.editor"
 
 echo "Deleting Service Account"
 gcloud iam service-accounts delete "${SERVICE_ACCOUNT_NAME}@${PROJECT_ID}.iam.gserviceaccount.com" --project "$PROJECT_ID" --quiet

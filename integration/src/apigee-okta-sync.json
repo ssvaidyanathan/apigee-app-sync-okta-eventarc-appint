@@ -488,12 +488,12 @@
 				"key": "`CONFIG_OKTA_ENDPOINT`",
 				"dataType": "STRING_VALUE",
 				"defaultValue": {
-					"stringValue": "https://dev-43102926.okta.com/api/v1/apps"
+					"stringValue": "https://OKTA_DOMAIN/api/v1/apps"
 				},
 				"displayName": "`CONFIG_OKTA_ENDPOINT`"
 			},
 			"value": {
-				"stringValue": "https://dev-43102926.okta.com/api/v1/apps"
+				"stringValue": "https://OKTA_DOMAIN/api/v1/apps"
 			}
 		},
 		{

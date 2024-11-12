@@ -52,7 +52,6 @@ gcloud iam service-accounts create "$SERVICE_ACCOUNT_NAME" --project "$PROJECT_I
 
 add_role_to_service_account "roles/apigee.admin" #Apigee Organization Admin
 add_role_to_service_account "roles/integrations.integrationInvoker" #Application Integration Invoker
-add_role_to_service_account "roles/pubsub.editor" # Pub/Sub Editor
 
 TRIGGER_NAME=apigee-app-sync
 TOPIC_NAME=$(gcloud eventarc triggers describe $TRIGGER_NAME --location global --project $PROJECT_ID --format=json | jq -r '.transport.pubsub.topic | split("/") | last' -r)
@@ -66,6 +65,9 @@ sed -i "s/OKTA_TOKEN/$OKTA_TOKEN/g" integration/dev/authconfigs/okta-token.json
 sed -i "s/OKTA_DOMAIN/$OKTA_DOMAIN/g" integration/dev/config-variables/apigee-okta-sync-config.json
 sed -i "s/PROJECT_ID/$PROJECT_ID/g" integration/dev/overrides/overrides.json
 sed -i "s/TOPIC_NAME/$TOPIC_NAME/g" integration/dev/overrides/overrides.json
+sed -i "s/SERVICE_ACCOUNT_NAME/$SERVICE_ACCOUNT_NAME/g" integration/dev/overrides/overrides.json
+
+sed -i "s/OKTA_DOMAIN/$OKTA_DOMAIN/g" integration/src/apigee-okta-sync.json
 sed -i "s/PROJECT_ID/$PROJECT_ID/g" integration/src/apigee-okta-sync.json
 sed -i "s/SERVICE_ACCOUNT_NAME/$SERVICE_ACCOUNT_NAME/g" integration/src/apigee-okta-sync.json
 sed -i "s/TOPIC_NAME/$TOPIC_NAME/g" integration/src/apigee-okta-sync.json
