@@ -40,7 +40,7 @@ source ./env.sh
 
 ---
 
-### Deploy Cloud Run service
+## Deploy Cloud Run service
 
 ```sh
 SERVICE_NAME=dummy-hello
