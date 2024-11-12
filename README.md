@@ -6,7 +6,7 @@ Demo to sync Apigee App credentials to Okta using EventArc and App Integration
 1. [Provision Apigee X](https://cloud.google.com/apigee/docs/api-platform/get-started/provisioning-intro)
 2. Configure [external access](https://cloud.google.com/apigee/docs/api-platform/get-started/configure-routing#external-access) for API traffic to your Apigee X instance
 3. [Provision Application Integration](https://cloud.google.com/application-integration/docs/setup-application-integration)
-4. An Okta instance and the Okta Token required to call the Okta APIs
+4. An [Okta instance](https://developer.okta.com) and the Okta Token required to call the Okta APIs
 
 ## (QuickStart) Setup using Cloud Shell
 
