@@ -55,6 +55,17 @@ gcloud run deploy $SERVICE_NAME --image=us-docker.pkg.dev/cloudrun/container/hel
 
 ### Configure Eventarc trigger
 
+Eventarc Event Receiver Permission to the default service account
+
+```sh
+
+gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+    --member="serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com" \
+    --role="roles/eventarc.eventReceiver"
+```
+
+Configure Event Arc Trigger
+
 ```sh
 TRIGGER_NAME=apigee-app-sync
 gcloud eventarc triggers create $TRIGGER_NAME \
