@@ -17,7 +17,7 @@ Use the following GCP Cloud Shell tutorial, and follow the instructions.
 
 All solutions within this repository are provided under the
 [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license.
-Please see the [LICENSE](./LICENSE.txt) file for more detailed terms and conditions.
+Please see the [LICENSE](./LICENSE) file for more detailed terms and conditions.
 
 ## Not Google Product Clause
 
