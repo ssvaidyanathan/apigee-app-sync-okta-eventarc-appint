@@ -52,6 +52,7 @@ gcloud iam service-accounts create "$SERVICE_ACCOUNT_NAME" --project "$PROJECT_I
 
 add_role_to_service_account "roles/apigee.admin" #Apigee Organization Admin
 add_role_to_service_account "roles/integrations.integrationInvoker" #Application Integration Invoker
+add_role_to_service_account "roles/pubsub.editor" # Pub/Sub Editor
 
 TRIGGER_NAME=apigee-app-sync
 TOPIC_NAME=$(gcloud eventarc triggers describe $TRIGGER_NAME --location global --project $PROJECT_ID --format=json | jq -r '.transport.pubsub.topic | split("/") | last' -r)
@@ -78,7 +79,7 @@ integrationcli prefs set --reg=$REGION --proj=$PROJECT_ID --token=$TOKEN
 echo "Publishing the integration"
 integrationcli integrations apply -f integration/. \
  -e dev --sa $SERVICE_ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com  \
- --grant-permission --wait
+ --grant-permission=true --wait=true
 
  rm -rf integration/dev integration/src
 

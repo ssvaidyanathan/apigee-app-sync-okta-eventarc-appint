@@ -83,6 +83,8 @@ gcloud eventarc triggers create $TRIGGER_NAME \
 
 ## Deployment
 
+In your GCP console, go to IAM and then select the "Include Google-provided role grants" check box and look for `service-PROJECT_NUMBER@gcp-sa-integrations.iam.gserviceaccount.com` and assign the Pub/Sub Editor Role
+
 Next, let's deploy the sample. Just run
 
 ```bash
