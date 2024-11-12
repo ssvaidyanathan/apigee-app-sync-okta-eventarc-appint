@@ -43,6 +43,8 @@ gcloud services enable pubsub.googleapis.com run.googleapis.com eventarc.googlea
 
 ```
 
+Now, lets deploy the Cloud Run Service
+
 ```sh
 SERVICE_NAME=dummy-hello
 gcloud run deploy $SERVICE_NAME --image=us-docker.pkg.dev/cloudrun/container/hello \
