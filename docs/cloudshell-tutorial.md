@@ -89,3 +89,12 @@ You can test by creating an app in Apigee and see if its syncing into Okta
 Congratulations! You've successfully deployed a solution to sync the credentials from Apigee to Okta
 
 <walkthrough-inline-feedback></walkthrough-inline-feedback>
+
+## Cleanup
+
+To clean up all the resources
+
+```sh
+source env.sh
+./cleanup.sh
+```
