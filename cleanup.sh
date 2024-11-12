@@ -29,6 +29,13 @@ if [ -z "$SERVICE_ACCOUNT_NAME" ]; then
   exit
 fi
 
+remove_role_from_service_account() {
+  local role=$1
+  gcloud projects remove-iam-policy-binding "$PROJECT_ID" \
+    --member="serviceAccount:${SERVICE_ACCOUNT_NAME}@${PROJECT_ID}.iam.gserviceaccount.com" \
+    --role="$role"
+}
+
 echo "Installing integrationcli"
 curl -L https://raw.githubusercontent.com/GoogleCloudPlatform/application-integration-management-toolkit/main/downloadLatest.sh | sh -
 export PATH=$PATH:$HOME/.integrationcli/bin
@@ -49,3 +56,10 @@ gcloud eventarc triggers delete $TRIGGER_NAME --location=global --project=$PROJE
 echo "Deleting the Cloud Run Service"
 SERVICE_NAME=dummy-hello
 gcloud run services delete $SERVICE_NAME --region=$REGION --project=$PROJECT_ID --quiet
+
+echo "Removing assigned roles from Service Account"
+remove_role_from_service_account "roles/integrations.integrationInvoker"
+remove_role_from_service_account "roles/apigee.admin"
+
+echo "Deleting Service Account"
+gcloud iam service-accounts delete "${SERVICE_ACCOUNT_NAME}@${PROJECT_ID}.iam.gserviceaccount.com" --project "$PROJECT_ID" --quiet
