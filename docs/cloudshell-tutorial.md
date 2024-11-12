@@ -53,7 +53,6 @@ gcloud run deploy $SERVICE_NAME --image=us-docker.pkg.dev/cloudrun/container/hel
 ### Configure Eventarc trigger
 
 ```sh
-PROJECT_NUMBER="$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')"
 TRIGGER_NAME=apigee-app-sync
 gcloud eventarc triggers create $TRIGGER_NAME \
 --destination-run-service=$SERVICE_NAME \

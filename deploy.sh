@@ -53,7 +53,6 @@ gcloud iam service-accounts create "$SERVICE_ACCOUNT_NAME" --project "$PROJECT_I
 add_role_to_service_account "roles/apigee.admin" #Apigee Organization Admin
 add_role_to_service_account "roles/integrations.integrationInvoker" #Application Integration Invoker
 
-PROJECT_NUMBER="$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')"
 TRIGGER_NAME=apigee-app-sync
 TOPIC_NAME=$(gcloud eventarc triggers describe $TRIGGER_NAME --location global --project $PROJECT_ID --format=json | jq -r '.transport.pubsub.topic | split("/") | last' -r)
 

@@ -19,3 +19,4 @@ export REGION="REGION_ID_TO_SET"
 export SERVICE_ACCOUNT_NAME="apigee-int-svc-account"
 export OKTA_TOKEN="OKTA_TOKEN_TO_SET" # exclude the SSWS
 export OKTA_DOMAIN="OKTA_DOMAIN_TO_SET"
+PROJECT_NUMBER="$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')"
