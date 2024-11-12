@@ -1,0 +1,4 @@
+{
+	"`CONFIG_APIGEE_ENDPOINT`": "https://apigee.googleapis.com/v1/organizations/$`ProjectId`$/developers/$developerId$/apps/$appName$",
+	"`CONFIG_OKTA_ENDPOINT`": "https://OKTA_DOMAIN/api/v1/apps"
+}

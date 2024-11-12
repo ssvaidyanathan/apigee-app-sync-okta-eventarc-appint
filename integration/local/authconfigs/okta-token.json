@@ -1,0 +1,11 @@
+{
+	"displayName": "okta-token",
+	"visibility": "CLIENT_VISIBLE",
+	"decryptedCredential": {
+		"credentialType": "AUTH_TOKEN",
+		"authToken": {
+			"type": "SSWS",
+			"token": "OKTA_TOKEN"
+		}
+	}
+}

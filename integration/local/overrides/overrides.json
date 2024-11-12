@@ -1,0 +1,31 @@
+{
+	"trigger_overrides": [
+		{
+			"triggerNumber": "1",
+			"projectId": "PROJECT_ID",
+			"topicName": "TOPIC_NAME"
+		}
+	],
+	"task_overrides": [
+		{
+			"task": "GenericRestV2Task",
+			"taskId": "2",
+			"parameters": {
+				"url": {
+					"key": "url",
+					"value": {
+						"stringValue": "$APIGEE_URL$"
+					}
+				}
+			}
+		}
+	],
+	"integration_overrides": {
+		"databasePersistencePolicy": "DATABASE_PERSISTENCE_ASYNC",
+		"enableVariableMasking": false,
+		"cloudLoggingDetails": {
+			"cloudLoggingSeverity": "CLOUD_LOGGING_SEVERITY_UNSPECIFIED",
+			"enableCloudLogging": false
+		}
+	}
+}
